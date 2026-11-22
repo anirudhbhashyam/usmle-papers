@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#153a3b">
+  <title>Form 16 · Exam Practice</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./questions.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <div class="identity">
+        <span class="identity-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6m-6 4h3"/></svg></span>
+        <div><strong>Exam Practice</strong><span id="form-title">Form 16</span></div>
+      </div>
+      <div class="top-tools">
+        <button class="tool-button" id="help-button" type="button" title="Instructions and keyboard shortcuts" aria-label="Instructions"><span class="tool-icon" data-icon="help"></span><span class="tool-text">Help</span></button>
+        <a class="tool-button active-only" href="https://www.usmle.org/sites/default/files/2021-10/Step_1_Sample_Items.pdf#page=7" target="_blank" rel="noopener" title="Official laboratory reference values (opens in a new tab)" aria-label="Lab values (opens in a new tab)"><span class="tool-icon" data-icon="labs"></span><span class="tool-text">Lab values</span></a>
+        <button class="tool-button active-only" id="calculator-button" type="button" title="Calculator" aria-label="Calculator"><span class="tool-icon" data-icon="calculator"></span><span class="tool-text">Calculator</span></button>
+        <button class="tool-button active-only" id="font-button" type="button" title="Change text size" aria-label="Change text size"><span class="font-icon" aria-hidden="true">Aa</span><span class="tool-text">Text size</span></button>
+        <button class="tool-button active-only" id="contrast-button" type="button" title="Toggle dark contrast" aria-label="Dark contrast" aria-pressed="false"><span class="tool-icon" data-icon="contrast"></span><span class="tool-text">Contrast</span></button>
+        <button class="tool-button" id="reset-button" type="button" title="Reset exam" aria-label="Reset exam" hidden><span class="tool-icon" data-icon="reset"></span><span class="tool-text">Reset exam</span></button>
+      </div>
+      <div class="timer active-only" id="timer" role="timer" aria-label="Block time remaining">
+        <span class="tool-icon" data-icon="clock"></span>
+        <div><span>Block time</span><strong id="timer-value">30:00</strong></div>
+      </div>
+    </header>
+    <div class="workstation" id="workstation">
+      <aside class="navigator" id="navigator" aria-label="Block navigation">
+        <div class="navigator-heading">
+          <p class="eyebrow" id="block-label">Block 1 of 10</p>
+          <div class="progress-heading"><h2>Questions</h2><span id="answered-count"></span></div>
+          <progress id="progress" aria-label="Questions answered"></progress>
+        </div>
+        <nav class="question-grid" id="question-grid" aria-label="Questions"></nav>
+        <div class="legend" aria-label="Question statuses">
+          <span><i class="legend-dot answered"></i>Answered</span>
+          <span><i class="legend-dot"></i>Unanswered</span>
+          <span><i class="legend-dot flagged"></i>Marked</span>
+        </div>
+        <button class="sidebar-review" id="review-button" type="button"><span class="tool-icon" data-icon="list"></span>Review block</button>
+      </aside>
+      <main class="workspace" id="workspace">
+        <div class="scrollpane" id="scrollpane">
+          <div id="screen"></div>
+        </div>
+        <footer class="exam-footer" id="exam-footer">
+          <div class="footer-left">
+            <button class="button secondary" id="jump-button" type="button"><span class="tool-icon" data-icon="list"></span>Items</button>
+            <span id="item-position"></span>
+          </div>
+          <div class="footer-actions">
+            <button class="button secondary" id="previous-button" type="button">Previous</button>
+            <button class="button primary" id="next-button" type="button">Next</button>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <div class="dialog-header"><h2 id="dialog-title"></h2><button class="icon-button" id="dialog-close" type="button" aria-label="Close"><span class="tool-icon" data-icon="close"></span></button></div>
+    <div id="dialog-content"></div>
+  </dialog>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <noscript>This exam simulator requires JavaScript.</noscript>
+</body>
+</html>
